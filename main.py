@@ -143,6 +143,8 @@ def process_file():
     try:
         file_path_list = files_paths_string.get().split('\n')[1:]
 
+        file_path_list = [os.path.normpath(path) for path in file_path_list]
+
         if files_paths_string.get() == '' : raise Exception('Не выбран путь к файлу')
         if action_var.get() not in flatten_dict_values(action_options): raise Exception('Не выбранно действие')
 
